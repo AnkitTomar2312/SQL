@@ -105,13 +105,16 @@ from customer_dummy;
 alter table product_subcategories
 rename column `ï»¿ProductSubcategoryKey` to `ProductSubcategoryKey`;
 
-select pc.categoryname, ps.subcategoryname, sum(r.returnquantity) as total_return_quantity
-from product_categories as pc
-inner join product_subcategories as ps on pc.﻿ProductCategoryKey = ps.ProductCategoryKey
-inner join products as p on ps.﻿ProductSubcategoryKey = p.ProductSubcategoryKey
-inner join returns as r on r.ProductKey = p.﻿ProductKey
-group by pc.categoryname, ps.subcategoryname
-order by total_return_quantity;
+select pc.CategoryName,ps.SubcategoryName,sum(r.ReturnQuantity) as total_return
+from product_categories pc
+inner join product_subcategories ps
+on pc.ProductCategoryKey=ps.ProductCategoryKey
+inner join products p
+on p.ProductSubcategoryKey=ps.ProductSubcategoryKey
+inner join returns r
+on r.ProductKey=p.ProductKey
+group by pc.CategoryName,ps.SubcategoryName
+order by pc.CategoryName,ps.SubcategoryName;
 
 -- Territories with a Total Return Quantity Greater Than 200
 -- Approach
