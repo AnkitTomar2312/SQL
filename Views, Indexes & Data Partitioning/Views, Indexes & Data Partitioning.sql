@@ -15,3 +15,16 @@ select customerkey, firstname,lastname,totalchildren
 from customers;
 
 select * from children;
+
+/*
+Altering the view already created
+*/
+desc customers;
+
+alter view children as 
+select customerkey, firstname,lastname,totalchildren
+from customers
+where totalchildren>3;
+
+select * from children;
+
