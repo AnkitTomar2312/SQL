@@ -89,9 +89,9 @@ select * from customer_dummy;
 -- 1. email_status such that if email is null, it should return 'No email provided' using ifnull
 -- 2. contact_info such that if email is null, it takes phone and if that is null, it takes address and if that is null too
 -- it returns 'No Contact Provided' using coalesce
-select customer_id, customer_name,
-ifnull(email,'No email provided') as email_status,
-coalesce(email,phone,address,'No contact provided') as contact_info
+select customer_id,customer_name,
+ifnull(email,'No Email Provided') as email_info,
+coalesce(email,phone,address,'No Contact Detail Provided') as contact_detail
 from customer_dummy;
 
 -- Fun Time
