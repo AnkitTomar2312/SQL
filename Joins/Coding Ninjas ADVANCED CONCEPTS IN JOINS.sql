@@ -102,8 +102,8 @@ from customer_dummy;
 -- joining products and returns on productkey
 -- joining product_subcategories and products on productsubcategorykey
 -- joining product_subcategories and product_categories on productcategorykey
-alter table product_categories
-rename column `ï»¿ProductCategoryKey` to `ProductCategoryKey`;
+alter table product_subcategories
+rename column `ï»¿ProductSubcategoryKey` to `ProductSubcategoryKey`;
 
 select pc.categoryname, ps.subcategoryname, sum(r.returnquantity) as total_return_quantity
 from product_categories as pc
