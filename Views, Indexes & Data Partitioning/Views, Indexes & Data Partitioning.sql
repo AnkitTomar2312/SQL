@@ -32,5 +32,15 @@ drop view if exists children;
 
 /*
 Data Partitioning
+dividing a large table into smaller, more manageable pieces while maintianing 
+the overall structure and schhema of the original table.
 
+performance optimization
+maintenance and management
+improved availability
+scalability
+load balancing
+
+range partition is splitting acc. to range of values
 */
+
