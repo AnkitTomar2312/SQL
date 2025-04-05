@@ -102,6 +102,9 @@ from customer_dummy;
 -- joining products and returns on productkey
 -- joining product_subcategories and products on productsubcategorykey
 -- joining product_subcategories and product_categories on productcategorykey
+alter table returns
+rename column `ï»¿ReturnDate` to `ReturnDate`;
+
 select pc.categoryname, ps.subcategoryname, sum(r.returnquantity) as total_return_quantity
 from product_categories as pc
 inner join product_subcategories as ps on pc.﻿ProductCategoryKey = ps.ProductCategoryKey
