@@ -28,3 +28,4 @@ where totalchildren>3;
 
 select * from children;
 
+drop view if exists children;
