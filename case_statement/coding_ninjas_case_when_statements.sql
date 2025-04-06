@@ -19,7 +19,14 @@
 --         ELSE 'High Income'
 --     END AS income_category
 -- FROM customers;
+use coding_ninja;
 
+select CustomerKey,AnnualIncome,
+case when AnnualIncome<=50000 then 'Low Income'
+	when  AnnualIncome between 50000 and 100000 then 'Mid Income'
+    else 'High Income'
+    end as inncome_category
+from customers;
 
 
 -- Handling of NULL Values using CASE statement
