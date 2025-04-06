@@ -12,13 +12,15 @@
 -- FROM table_name;
 
 -- Example
-SELECT customerkey, annualincome,
-    CASE
-        WHEN annualincome < 50000 THEN 'Low Income'
-        WHEN annualincome BETWEEN 50000 AND 100000 THEN 'Moderate Income' 
-        ELSE 'High Income'
-    END AS income_category
-FROM customers;
+-- SELECT customerkey, annualincome,
+--     CASE
+--         WHEN annualincome < 50000 THEN 'Low Income'
+--         WHEN annualincome BETWEEN 50000 AND 100000 THEN 'Moderate Income' 
+--         ELSE 'High Income'
+--     END AS income_category
+-- FROM customers;
+
+
 
 -- Handling of NULL Values using CASE statement
 -- Generic Syntax
