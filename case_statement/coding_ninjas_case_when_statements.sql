@@ -119,12 +119,15 @@ group by customerkey;
 show columns from territories;
 
 alter table territories
-rename column `ï»¿SalesTerritoryKey` to `SalesTerritoryKey`;
+rename column `SalesTerritoryKey` to `STK`;
 desc territories;
 desc returns;
-
+select STK
+from territories;
+select *
+from returns;
 -- Example
-SELECT t.region,
+SELECT territories.region,
 	ROUND(AVG(p.productcost), 2) AS AvgProductCost,
 	CASE 
 		WHEN AVG(p.productcost) > 200 THEN 'High Cost' 
@@ -134,8 +137,8 @@ FROM products p
 JOIN product_subcategories psc ON p.productsubcategorykey = psc.﻿ProductSubcategoryKey
 JOIN product_categories pc ON psc.productcategorykey = pc.﻿ProductCategoryKey
 JOIN returns r ON p.﻿ProductKey = r.productkey
-JOIN territories t ON r.territorykey = t.﻿SalesTerritoryKey
-GROUP BY t.region
+JOIN territories  ON r.territorykey = territories.﻿STK
+GROUP BY territories.region
 ORDER BY AvgProductCost DESC;
 
 -- Example
