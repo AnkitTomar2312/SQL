@@ -116,6 +116,13 @@ select customerkey, max(annualincome)
 from customers
 group by customerkey;
 
+show columns from territories;
+
+alter table territories
+rename column `ï»¿SalesTerritoryKey` to `SalesTerritoryKey`;
+desc territories;
+desc returns;
+
 -- Example
 SELECT t.region,
 	ROUND(AVG(p.productcost), 2) AS AvgProductCost,
