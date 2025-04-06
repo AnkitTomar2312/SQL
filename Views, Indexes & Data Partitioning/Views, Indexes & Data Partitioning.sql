@@ -182,4 +182,7 @@ SELECT * FROM Stores PARTITION (p1);
 
 /*
 Indexing
+It add index to each record
+made searching fater and easier & optimized the query
 */
+
