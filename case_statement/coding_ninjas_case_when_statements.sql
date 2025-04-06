@@ -64,7 +64,7 @@ when AnnualIncome is null then 'Not Available'
 else 'High Income'
 end as income_category
 from customers;
-from customers
+
 
 
 -- Updating of a table using CASE statement
@@ -81,6 +81,7 @@ from customers
 --                  ELSE default_value
 --               END
 -- WHERE condition;
+create table customerdetails  select * from customers;
 
 -- Example
 ALTER TABLE customerdetails
