@@ -21,11 +21,20 @@
 -- FROM customers;
 use coding_ninja;
 
+SET SQL_SAFE_UPDATES = 0;
+
+update customers
+set AnnualIncome=null
+where AnnualIncome='';
+
+alter table customers
+change AnnualIncome AnnualIncome int;
+
 select CustomerKey,AnnualIncome,
 case when AnnualIncome<=50000 then 'Low Income'
 	when  AnnualIncome between 50000 and 100000 then 'Mid Income'
     else 'High Income'
-    end as inncome_category
+    end as income_category
 from customers;
 
 
@@ -39,14 +48,24 @@ from customers;
 -- FROM table_name;
 
 -- Example
-SELECT customerkey, annualincome,
-    CASE
-        WHEN annualincome < 50000 THEN 'Low Income'
-        WHEN annualincome BETWEEN 50000 AND 100000 THEN 'Moderate Income' 
-        WHEN annualincome IS NULL THEN 'Not Available'
-        ELSE 'High Income'
-    END AS income_category
-FROM customers;
+-- SELECT customerkey, annualincome,
+--     CASE
+--         WHEN annualincome < 50000 THEN 'Low Income'
+--         WHEN annualincome BETWEEN 50000 AND 100000 THEN 'Moderate Income' 
+--         WHEN annualincome IS NULL THEN 'Not Available'
+--         ELSE 'High Income'
+--     END AS income_category
+-- FROM customers;
+
+select CustomerKey,AnnualIncome,
+case when AnnualIncome<=50000 then 'Low Income'
+when AnnualIncome between 50000 and 100000 then 'Mid Income'
+when AnnualIncome is null then 'Not Available'
+else 'High Income'
+end as income_category
+from customers;
+from customers
+
 
 -- Updating of a table using CASE statement
 -- Generic Syntax
