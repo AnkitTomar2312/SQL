@@ -175,6 +175,8 @@ WHERE (
     FROM Returns r
     WHERE r.ProductKey = p.ProductKey
 ) > 50;
+-- aggregate value is returned
+
 
 -- Generic Syntax with HAVING statement
 -- SELECT column1, column2
