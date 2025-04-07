@@ -216,7 +216,7 @@ JOIN (
         SUM(r.returnQuantity) AS total_return_quantity
     FROM returns r
     GROUP BY r.territorykey
-) sub ON t.salesterritorykey = sub.territorykey
+) sub ON t.STK = sub.territorykey
 ORDER BY sub.total_return_quantity DESC;
 
 -- Generic Syntax of sub-query inside another sub-query
