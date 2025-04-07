@@ -21,7 +21,7 @@
 -- )
 -- SELECT column_name1, column_name2,..., column_nameN 
 -- FROM CTE_NAME;
-
+use coding_ninja;
 with nw_data as
 (
 select region, country, 
@@ -38,11 +38,11 @@ select * from nw_data;
 -- Example
 WITH AverageCategoryPrice AS 
 (
-    SELECT psc.﻿ProductSubcategoryKey,
+    SELECT psc.﻿productsubcategorykey,
            ROUND(AVG(p.productprice), 2) AS AvgPrice
     FROM products p
-    JOIN product_subcategories psc ON p.productsubcategorykey = psc.﻿ProductSubcategoryKey
-    GROUP BY psc.﻿ProductSubcategoryKey
+    JOIN product_subcategories psc ON p.productsubcategorykey = psc.﻿productsubcategorykey
+    GROUP BY psc.productsubcategorykey
 )
 SELECT p.﻿ProductKey, p.Productname, p.productprice, acp.AvgPrice
 FROM products p
