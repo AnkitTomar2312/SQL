@@ -231,14 +231,14 @@ ORDER BY sub.total_return_quantity DESC;
 -- );
 
 -- Example
-SELECT t.region, sub.total_return_quantity
+SELECT t.region, sub.total_return_quantity as max_return_quatity
 FROM territories t
 JOIN (
     SELECT  r.territorykey,
 			SUM(r.returnQuantity) AS total_return_quantity
     FROM returns r
     GROUP BY r.territorykey
-) sub ON t.salesterritorykey = sub.territorykey
+) sub ON t.STK = sub.territorykey
 WHERE sub.total_return_quantity = (
     SELECT MAX(total_return_quantity)
     FROM (
