@@ -128,4 +128,49 @@ END &&
 DELIMITER ;
 
 
+set @marks_of_student_3='3';
+call display_marks(@marks_of_student_3);
+select @marks_of_student_3;
+
+set @marks_of_student_5='5';
+call display_marks(@marks_of_student_5);
+select @marks_of_student_5;
+
+
+show procedure status where db='coding_ninja';
+
+-- drop procedure 'procedure_name';
+
+DELIMITER &&  
+
+CREATE PROCEDURE get_highest_price_products (IN var1 INT)  
+
+BEGIN  
+
+   with decile_table as
+
+(
+
+SELECT  ProductKey, ProductName, ProductPrice,
+
+    NTILE(10) OVER (ORDER BY ProductPrice desc) AS price_decile
+
+FROM Products
+
+)
+
+select count(*) 
+
+from decile_table
+
+where price_decile <= var1;      
+
+END &&  
+
+DELIMITER ;
+
+call get_highest_price_products(2);
+call get_highest_price_products(5);
+
+
 
