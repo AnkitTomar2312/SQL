@@ -75,3 +75,35 @@ CALL get_student_count(50);
 CALL get_student_count(80);
 
 -- in procedure 
+DELIMITER &&  
+
+CREATE PROCEDURE get_student_count1 (IN var1 INT)  
+
+BEGIN  
+
+    SELECT count(*) FROM student_info
+
+    where marks > var1;      
+
+END &&  
+
+DELIMITER ;
+
+-- out
+
+DELIMITER &&  
+
+CREATE PROCEDURE get_student_count_out2 (OUT count_var INT)  
+
+BEGIN  
+
+    SELECT count(*) INTO count_var FROM student_info
+
+    where marks > 80;      
+
+END &&  
+
+DELIMITER 
+
+CALL get_student_count_out2 (@student_count_out);
+select @student_count_out;
