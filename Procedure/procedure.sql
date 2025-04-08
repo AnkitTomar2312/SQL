@@ -55,3 +55,5 @@ END %%
 DELIMITER ;
 
 call get_merit_student();
+
+-- Dynamic Procedure
