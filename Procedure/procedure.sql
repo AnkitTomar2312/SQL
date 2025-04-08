@@ -41,3 +41,15 @@ INSERT INTO student_info (stud_id, stud_code, stud_name, subject, marks, phone) 
 select * from student_info;
 
 -- procedure without any parameter
+
+DELIMITER %%  
+
+CREATE PROCEDURE get_merit_student ()  
+
+BEGIN  
+
+    SELECT * FROM student_info WHERE marks > 70;
+
+END %% 
+
+DELIMITER ;
