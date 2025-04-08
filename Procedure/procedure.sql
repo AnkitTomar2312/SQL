@@ -53,3 +53,5 @@ BEGIN
 END %% 
 
 DELIMITER ;
+
+call get_merit_student();
