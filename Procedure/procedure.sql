@@ -110,3 +110,8 @@ select @student_count_out;
 
 -- Session Variable
 
+set @x=10;
+
+select @x+5 as addition;
+
+
