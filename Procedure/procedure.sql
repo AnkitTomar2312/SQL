@@ -114,4 +114,18 @@ set @x=10;
 
 select @x+5 as addition;
 
+-- combinatio of INOUT wih=th session varaible
+DELIMITER && 
+
+CREATE PROCEDURE display_marks (INOUT var2 INT)  
+
+BEGIN  
+
+    SELECT marks INTO var2 FROM student_info WHERE stud_id = var2;   
+
+END &&
+
+DELIMITER ;
+
+
 
