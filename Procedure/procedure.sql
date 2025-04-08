@@ -107,3 +107,6 @@ DELIMITER
 
 CALL get_student_count_out2 (@student_count_out);
 select @student_count_out;
+
+-- Session Variable
+
