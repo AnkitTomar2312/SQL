@@ -70,3 +70,5 @@ BEGIN
 END &&  
 
 DELIMITER ;
+
+CALL get_student_count(50);
