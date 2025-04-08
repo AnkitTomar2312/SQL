@@ -72,3 +72,6 @@ END &&
 DELIMITER ;
 
 CALL get_student_count(50);
+CALL get_student_count(80);
+
+-- in procedure 
