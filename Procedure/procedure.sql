@@ -57,3 +57,16 @@ DELIMITER ;
 call get_merit_student();
 
 -- Dynamic Procedure
+DELIMITER &&  
+
+CREATE PROCEDURE get_student_count (IN var1 INT)  
+
+BEGIN  
+
+    SELECT count(*) FROM student_info
+
+    where marks > var1;      
+
+END &&  
+
+DELIMITER ;
