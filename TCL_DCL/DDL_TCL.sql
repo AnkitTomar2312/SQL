@@ -3,7 +3,8 @@ Transaction- work performed againt database in sql
 commit- permanently save all the transaction 
 */
 use coding_ninja;
-
+select @@autocommit;
+set autocommit=0;
 drop table if exists employee1;
 CREATE TABLE employee1(  
 
@@ -35,7 +36,5 @@ select * from employee1;
 
 rollback;
 
-select @@autocommit;
-set autocommit=0;
-
 select * from employee1;
+
