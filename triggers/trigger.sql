@@ -1,0 +1,2 @@
+-- Trigger
+-- sql statement reside in a system catalog
