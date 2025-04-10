@@ -28,3 +28,5 @@ INSERT INTO employee VALUES
 ('Brayden', 'Teacher', '2020-10-04', 12),  
 
 ('Antonio', 'Business', '2020-10-04', 11);
+
+-- creating trigger
