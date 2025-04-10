@@ -2,7 +2,9 @@
 Transaction- work performed againt database in sql
 commit- permanently save all the transaction 
 */
+use coding_ninja;
 
+drop table if exists employee1;
 CREATE TABLE employee1(  
 
     name varchar(45) NOT NULL,    
@@ -28,3 +30,12 @@ INSERT INTO employee1 VALUES
 ('Brayden', 'Teacher', '2020-10-04', 12),  
 
 ('Antonio', 'Business', '2020-10-04', 11);
+
+select * from employee1;
+
+rollback;
+
+select @@autocommit;
+set autocommit=0;
+
+select * from employee1;
