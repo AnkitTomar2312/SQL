@@ -3,7 +3,7 @@
 
 use coding_ninja;
 
-CREATE TABLE employee(  
+CREATE TABLE if not exists employee(  
 
     name varchar(45) NOT NULL,    
 
@@ -149,3 +149,83 @@ BEGIN
 END //  
 
 DELIMITER ;
+UPDATE employee SET working_hours = 9 WHERE name = 'Alex';
+
+select * from employee;
+
+ 
+
+UPDATE employee SET working_hours = 10 WHERE name = 'Peter';
+
+ 
+
+USE coding_ninjas_new;    
+
+SHOW TRIGGERS;
+
+ 
+
+DROP TRIGGER IF EXISTS coding_ninjas_new.before_update_employee;
+
+ 
+
+USE coding_ninjas_new;    
+
+SHOW TRIGGERS;
+
+DELIMITER //
+
+CREATE TRIGGER before_delete_employee
+
+BEFORE DELETE ON employee
+
+FOR EACH ROW
+
+BEGIN
+
+    IF OLD.occupation = 'Actor' THEN
+
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Actors data can not be deleted';
+
+    END IF;
+
+END //
+
+DELIMITER ;
+
+ 
+
+DELETE FROM employee WHERE occupation = 'Actor';
+
+DELIMITER //
+
+CREATE TRIGGER before_update_employee
+
+BEFORE UPDATE ON employee
+
+FOR EACH ROW
+
+BEGIN
+
+    IF OLD.name <> 'Peter' THEN
+
+        SET NEW.working_hours = NEW.working_hours; 
+
+    ELSEIF OLD.name = 'Peter' THEN
+
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Update not allowed for Peter';
+
+    END IF;
+
+END //  
+
+DELIMITER ;
+
+ 
+
+select * from employee;
+
+
+
+
+
