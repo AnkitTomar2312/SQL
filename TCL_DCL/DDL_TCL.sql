@@ -38,3 +38,10 @@ rollback;
 
 select * from employee1;
 
+-- savepoint concept begin
+-- we divide database into parts and we can save the parts of different transaction using save point
+
+-- DCL command begin
+/*
+1. Grant Command:- 
+*/
