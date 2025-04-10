@@ -30,3 +30,26 @@ INSERT INTO employee VALUES
 ('Antonio', 'Business', '2020-10-04', 11);
 
 -- creating trigger
+DELIMITER //  
+
+Create Trigger before_insert_empworkinghours   
+
+BEFORE INSERT ON employee 
+
+FOR EACH ROW  
+
+BEGIN  
+
+IF NEW.working_hours < 0 THEN SET NEW.working_hours = 0;  
+
+END IF;  
+
+END //
+
+DELIMITER 
+
+INSERT INTO employee VALUES    
+
+('Markus', 'Farmer', '2020-10-08', 14),
+
+('Alex', 'Actor', '2020-10-10', -14);
