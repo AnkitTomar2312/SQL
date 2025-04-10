@@ -53,3 +53,27 @@ INSERT INTO employee VALUES
 ('Markus', 'Farmer', '2020-10-08', 14),
 
 ('Alex', 'Actor', '2020-10-10', -14);
+
+select * from employee;
+
+DELIMITER //
+
+CREATE TRIGGER before_insert_empworkinghour
+
+BEFORE INSERT ON employee
+
+FOR EACH ROW
+
+BEGIN
+
+    IF NEW.working_hours > 24 THEN
+
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Check the hours entered';
+
+    ELSEIF NEW.working_hours < 0 THEN SET NEW.working_hours = 0;
+
+    END IF;
+
+END //
+
+DELIMITER ;
